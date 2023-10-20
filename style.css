@@ -5,28 +5,11 @@
 }
 
 /* Fonts ----------------------------------------------------------------------------------------------*/ 
-@font-face {
-  font-family: 'Anderson Grotesk';
-  src:
-		url('assets/fonts/AndersonGrotesk-Bold.woff2') format('woff2'),
-    url('assets/fonts/AndersonGrotesk-Bold.woff') format('woff');
-	font-weight: 400;
-}
 
 @font-face {
-  font-family: 'Anderson Grotesk';
+  font-family: 'GT Cinetype';
   src:
-		url('assets/fonts/AndersonGrotesk-Ultrabold.woff2') format('woff2'),
-    url('assets/fonts/AndersonGrotesk-Ultrabold.woff') format('woff');
-	font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Gulax';
-  src:
-		url('assets/fonts/Gulax-Regular.woff2') format('woff2'),
-    url('assets/fonts/Gulax-Regular.woff') format('woff');
-	font-weight: 700;
+		url('assets/fonts/GT-Cinetype-Bold.woff') format('woff');
 }
 
 .intro {
@@ -38,16 +21,33 @@
   margin-bottom: 90px;
 }
 
+.bodyproject{
+  background-color: white;
+}
+
+.h2project{
+  color: black; 
+}
+
 body{
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
   color: var(--color);
-  font-family: 'Gulax', sans-serif;
-  background-image: url('assets/PICT0128.JPG');
+  font-family: 'GT Cinetype', sans-serif;
+  background-color: blue;
   background-size: cover;
   background-attachment: fixed;
+  cursor: url('assets/punktlogo.png'), auto;
 }
+
+
+/*.background:hover{
+  background-color: red;
+  background-size: cover;
+  background-attachment: fixed;
+}*/
+
 
 /* Navigation ----------------------------------------------------------------------------------------------*/ 
 nav{
@@ -66,25 +66,30 @@ ul {
   padding: 0;
 }
 
-li {
+/*li {
   float: left;
-}
+}*/
 
 li a {
   display: block;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
-  transition: color .3s , text-shadow .3s;
+  line-height: 600%;
 }
 
-li a:hover:not(.active) {
-  color: #6bffc9;
-  text-shadow: 0 0 5px #48FFBD;
+.frame:hover{
+  width:150px;
+  height:20px;
+  animation: hvrLR 2s;
 }
-  
-.active {
-  color: #6bffc9;
-  text-shadow: 0 0 5px #48FFBD;
+@keyframes hvrLR {
+  0% { 
+    width: 0px; 
+  }
+  100% { 
+    width: 100%; 
+    background: black; 
+  }
 }
 
 a{
@@ -134,7 +139,8 @@ input[type="checkbox"]:checked {
 }
 
 .contact:hover > .outline{
-  box-shadow: 0 0 5px #48FFBD;
+  font-weight: 1500;
+  font-style: oblique;
 }
 
 /* Main ----------------------------------------------------------------------------------------------*/ 
@@ -145,17 +151,20 @@ main{
 h1, h2{
   padding: 0;
   margin: 0;
-  font-family: 'Anderson Grotesk', sans-serif;
+  font-family: 'GT Cinetype', sans-serif;
 }
 
-h1{
-  font-size: 4em;
-  font-weight: 700;
-  color: white;
+h1{ 
+  font-size: 80px;
 }
 
 h2{
-  font-weight: 400;
+  font-size: 60px;
+}
+
+h2:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 20px;
 }
 
 .about-img{
@@ -166,6 +175,31 @@ h2{
 
 .long-txt{
   display: grid;
+}
+
+.kreis {
+  font-size: 400px;
+  float: right;
+}
+
+/*.fotoleft {
+  text-align: left;
+}
+.fotoright {
+  text-align: right;
+}/*
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 /* Cards ----------------------------------------------------------------------------------------------*/ 
@@ -255,18 +289,37 @@ h2{
 }
 
 /* Footer ----------------------------------------------------------------------------------------------*/
-footer {
-  width: 100%;
-  z-index: 19;
+/*footer {
   overflow: hidden;
-  background-color: var(--bg-color);
-}
+  text-align:justify;
+  margin: 0 50px;
+  position: absolute;
+  right: 10px;
+  bottom: 30px;
   
-.footer-container{
-  display: flex;
-  align-items: center;
-  justify-content: space-between ;
+}*/
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 20;
+  overflow: hidden;
+  margin: 0 50px;
+  display:flex;
 }
+
+
+
+
+
+
+
+
+
+
+
   
 /* Breakpoints ----------------------------------------------------------------------------------------------*/
 
@@ -279,6 +332,8 @@ footer {
   }
 
   /* Navigation */
+
+
   nav{
     padding: 15px 0;
   }
@@ -340,9 +395,10 @@ footer {
   }
 
     /* Footer */
-    footer{
+    .footer{
       padding: 10px 0;
     }
+
   
     .footer-container{
       margin: 0 4vw;
